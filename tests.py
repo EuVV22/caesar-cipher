@@ -20,5 +20,6 @@ def test_cipher(original_sentence, encrypted_sentence, monkeypatch):
         m.setattr(sys, "stdout", mocked_stdout)
         sys.modules.pop("cipher", None)
         importlib.import_module(name="cipher", package="files")
-    
+    print(encrypted_sentence)
+    print(mocked_stdout.getvalue().strip())
     assert encrypted_sentence in mocked_stdout.getvalue().strip()
